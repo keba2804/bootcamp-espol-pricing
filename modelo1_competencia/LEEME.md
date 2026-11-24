@@ -1,6 +1,6 @@
 # Reto: anticipar el próximo movimiento de precio de la competencia
 
-Datos sintéticos para el bootcamp de ESPOL. Preparado por el equipo de pricing de Pycca, noviembre de 2026.
+Datos sintéticos para Coding Bootcamps de ESPOL. Preparado por el equipo de inteligencia de negocios de Pycca, noviembre de 2026.
 
 **Para empezar:** abre los notebooks `01_datos.ipynb` (qué hay en los datos y qué patrones tienen) y `02_baseline.ipynb` (la tarea, la métrica y el baseline). Vienen ejecutados, con gráficos y resultados; se pueden volver a correr con `pip install pandas pyarrow scikit-learn matplotlib jupyter`.
 

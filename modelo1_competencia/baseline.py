@@ -1,4 +1,4 @@
-"""Baseline del modelo 3: ¿bajara el precio >= 5 % en los proximos 7 dias? (variables.py define objetivo y variables)
+"""Baseline del modelo 1: ¿bajara el precio >= 5 % en los proximos 7 dias? (variables.py define objetivo y variables)
 
 Cortes en el tiempo (nunca al azar):
   entrenamiento 2023-01-01 a 2024-12-31 | validacion 2025-01-01 a 2025-06-30 | prueba (OCULTA para el bootcamp) 2025-07-01 a 2025-12-24

@@ -1,4 +1,4 @@
-"""Variables (features) y objetivo del modelo 3. Todas usan solo informacion disponible hasta el dia t (sin mirar el futuro),
+"""Variables (features) y objetivo del modelo 1. Todas usan solo informacion disponible hasta el dia t (sin mirar el futuro),
 salvo el calendario comercial, que se conoce de antemano.
 
 Objetivo: baja_7d = 1 si el precio vigente de esa serie (producto x comercio) baja al menos 5 % frente al de hoy en algun dia de
