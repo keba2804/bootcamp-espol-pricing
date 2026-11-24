@@ -1,0 +1,14 @@
+comercio_id,tipo,tachado_permanente
+C01,hipermercado,False
+C02,electro con credito,False
+C03,ferreteria y hogar,False
+C04,electro con credito,False
+C05,papeleria y hogar,False
+C06,departamental,False
+C07,departamental,False
+C08,hogar,False
+C09,tecnologia,False
+C10,hogar,True
+C11,moda y hogar,False
+C12,ferreteria y hogar,False
+C13,electro con credito,True
