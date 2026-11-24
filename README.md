@@ -1,6 +1,6 @@
 # Reto: anticipar el próximo movimiento de precio de la competencia
 
-Material del reto de machine learning que el equipo de pricing de Pycca propone al bootcamp de ESPOL (noviembre de 2026).
+Material del reto de machine learning que el equipo de inteligencia de negocios de Pycca propone a Coding Bootcamps de ESPOL (noviembre de 2026).
 
 **Todos los datos son sintéticos.** Ningún precio, producto ni comercio es real.
 
