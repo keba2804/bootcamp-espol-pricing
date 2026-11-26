@@ -21,10 +21,18 @@ AQUI = Path(__file__).resolve().parent
 CARPETA = sys.argv[1] if len(sys.argv) > 1 else str(AQUI / 'datos')
 CORTES = {'entrenamiento': ('2023-01-01', '2024-12-31'), 'validacion': ('2025-01-01', '2025-06-30'), 'prueba': ('2025-07-01', '2025-12-24')}
 
+import os
+GRUPOS = os.environ.get('GRUPOS')      # opcional: archivo con comercio_id, producto_id, grupo (parte 1) para usarlo como variable
+if GRUPOS:
+    COLUMNAS, CATEGORICAS = COLUMNAS + ['grupo'], CATEGORICAS + ['grupo']
+
 t0 = time.time()
 d, cal = cargar(CARPETA)
 d['y'] = objetivo(d)
 d = variables(d, cal)
+if GRUPOS:
+    d = d.merge(pd.read_csv(GRUPOS)[['comercio_id', 'producto_id', 'grupo']], on=['comercio_id', 'producto_id'], how='left')
+    d['grupo'] = d.grupo.fillna(-1).astype(int).astype('category').cat.codes
 print('variables listas', round(time.time() - t0), 's |', len(d), 'filas', flush=True)
 corte = {k: d[(d.fecha >= a) & (d.fecha <= b) & d.y.notna()] for k, (a, b) in CORTES.items()}
 corte = {k: x for k, x in corte.items() if len(x)}        # el paquete del bootcamp no trae la prueba
@@ -74,7 +82,7 @@ for c in COLUMNAS:
     xx[c] = rng.permutation(xx[c].values)
     imp[c] = round(base_auc - roc_auc_score(x.y, m.predict_proba(xx)[:, 1]), 4)
 res['importancia_variables_caida_auc'] = dict(sorted(imp.items(), key=lambda kv: -kv[1]))
-(AQUI / f"resultados_baseline{'' if HORIZONTE == 7 else f'_h{HORIZONTE}'}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding='utf8')
+(AQUI / f"resultados_baseline{'' if HORIZONTE == 7 else f'_h{HORIZONTE}'}{'_grupos' if GRUPOS else ''}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding='utf8')
 for k in EVAL:
     print('==', k)
     print(pd.DataFrame(res[k]).T.to_string())
